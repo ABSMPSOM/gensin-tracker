@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex-grow flex items-center justify-center p-6 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-to-tr from-colombina-purple/10 via-colombina-pink/5 to-lunar/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
+
+    <div class="w-full max-w-xl relative z-10">
+        <div class="text-center mb-10">
+            <h1 class="font-serif text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-4 tracking-wider drop-shadow-[0_0_15px_rgba(226,232,240,0.2)]">
+                Akasha Terminal
+            </h1>
+            <p class="text-gray-400 text-lg tracking-wide font-light italic">
+                "The moon is pale today... Let us delve into the Irminsul."
+            </p>
+        </div>
+
+        <form action="/quest" method="GET" class="relative group">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-lunar via-colombina-pink to-colombina-purple rounded-xl blur opacity-20 group-hover:opacity-50 transition duration-700"></div>
+            
+            <div class="relative bg-dark-800/80 backdrop-blur-md rounded-xl shadow-2xl flex items-center p-2 ring-1 ring-white/10">
+                <svg class="w-6 h-6 text-lunar/50 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <input type="text" name="q" placeholder="e.g. When the Hearth-Flame Goes Out..." 
+                       class="w-full bg-transparent border-none text-gray-200 px-4 py-4 focus:outline-none placeholder-gray-600 text-lg selection:bg-lunar/20"
+                       value="{{ query if query else '' }}" required autocomplete="off">
+                <button type="submit" class="bg-dark-700 hover:bg-lunar text-gray-300 hover:text-dark-900 px-8 py-3 rounded-lg font-medium transition-all duration-500 border border-white/5 hover:border-lunar hover:shadow-[0_0_20px_rgba(226,232,240,0.4)] cursor-pointer">
+                    Extract
+                </button>
+            </div>
+        </form>
+
+        {% if error %}
+        <div class="mt-8 p-4 rounded-lg bg-colombina-pink/10 border border-colombina-pink/30 text-colombina-pink text-center backdrop-blur-sm shadow-xl">
+            {{ error }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

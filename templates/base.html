@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akasha System - Quest Tracker</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#050508', /* Deeper, abyssal night */
+                            800: '#111218',
+                            700: '#1a1b24',
+                        },
+                        gold: {
+                            400: '#d4af37',
+                            500: '#c5a028',
+                        },
+                        colombina: {
+                            pink: '#f472b6', /* Damselette's hair accent */
+                            purple: '#8b5cf6', /* Fatui eerie glow */
+                        },
+                        lunar: '#e2e8f0', /* Pale moon silver */
+                        primo: '#f0b1d3'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050508;
+            color: #e5e7eb;
+            /* Colombina's Ethereal Lunar Moon Background */
+            background-image: 
+                /* The Pale Moon Glow (Top Center) */
+                radial-gradient(circle at 50% -10%, rgba(226, 232, 240, 0.15), transparent 40%),
+                /* Colombina's soft pink aura (Right) */
+                radial-gradient(circle at 85% 30%, rgba(244, 114, 182, 0.05), transparent 50%),
+                /* Eerie Fatui purple (Left) */
+                radial-gradient(circle at 15% 70%, rgba(139, 92, 246, 0.05), transparent 50%);
+            background-attachment: fixed;
+        }
+        
+        /* Custom Lunar Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050508; }
+        ::-webkit-scrollbar-thumb { background: #1a1b24; border-radius: 4px; border: 1px solid rgba(226, 232, 240, 0.1); }
+        ::-webkit-scrollbar-thumb:hover { background: #e2e8f0; }
+    </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-colombina-pink/30 selection:text-white flex flex-col">
+    {% block content %}{% endblock %}
+</body>
+</html>
